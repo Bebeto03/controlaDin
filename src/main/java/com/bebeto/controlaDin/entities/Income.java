@@ -6,7 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -18,10 +18,16 @@ public class Income {
     private long id;
 
     @Column(nullable = false)
+    private String name;
+
+    @Column(nullable = true)
+    private String description;
+
+    @Column(nullable = false)
     private double amount;
 
-    @OneToOne
-    @JoinColumn(name = "id_usuario", unique = true)
+    @ManyToOne
+    @JoinColumn(name = "id_user")
     private User user;
 
     public Income(){}
@@ -32,6 +38,22 @@ public class Income {
 
     public void setId(long id){
         this.id = id;
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public void setName(String name){
+        this.name = name;
+    }
+
+    public String getDescription(){
+        return description;
+    }
+
+    public void setDescription(String description){
+        this.description = description;
     }
 
     public double getAmount(){
