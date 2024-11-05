@@ -8,20 +8,25 @@
     <link rel="stylesheet" href="../static/css/style.css">
 </head>
 <body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <div class="container">
-        <form class="form-group">
-            <div class="mb-3 bg p-5 rounded">
-                <h2 class="text-center">Registre-se</h2>
-                <label for="exampleFormControlInput1" class="form-label mt-4 fw-semibold">Nome</label>
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nome">
-                <label for="exampleFormControlInput1" class="form-label mt-3 fw-semibold">E-mail</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="nome@exemplo.com">
-                <label for="exampleFormControlInput1" class="form-label mt-3 fw-semibold">Senha</label>
-                <input type="password" class="form-control" id="exampleFormControlInput1">
-                <input type="submit" class="form-control btn-color mt-4" id="exampleFormControlInput1">
+    <div class="container mt-4">
+        <h1>ControlaDin</h1>
+        <form class="form-group" id="registerForm">
+            <div class="bg p-5 pt-4 rounded">
+                <h2>Registre-se</h2>
+                <label for="nameNewUser" class="form-label mt-3 fw-semibold">Nome</label>
+                <input type="text" class="form-control" id="nameNewUser" placeholder="Nome" required>
+                <label for="emailNewUser" class="form-label mt-3 fw-semibold">E-mail</label>
+                <input type="email" class="form-control" id="emailNewUser" placeholder="nome@exemplo.com" required>
+                <label for="passwordNewUser" class="form-label mt-3 fw-semibold">Senha</label>
+                <input type="password" class="form-control" id="passwordNewUser" required>
+                <label for="confirmPasswordNewUser" class="form-label mt-3 fw-semibold">Confirme a senha</label>
+                <input type="password" class="form-control" id="confirmPasswordNewUser" required>
+                <div id="errorMessage" class="alert alert-danger mt-3 d-none"></div>
+                <input type="submit" class="form-control btn-color mt-4" id="submitNewUser">
             </div>
         </form>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="../static/js/register.js"></script>
 </body>
 </html>
