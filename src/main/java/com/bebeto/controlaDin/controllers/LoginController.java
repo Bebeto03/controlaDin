@@ -11,5 +11,10 @@ public class LoginController {
         return "register";
     }
 
+    @GetMapping("/login")
+    public String showLoginForm(){
+        return "login";
+    }
+
 
 }
