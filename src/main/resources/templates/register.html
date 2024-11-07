@@ -10,15 +10,16 @@
 <body>
     <div class="container mt-4">
         <h1>ControlaDin</h1>
-        <form class="form-group" id="registerForm">
+        <form class="form-group" id="registerForm" th:action="@{/register}" th:object="${user}" method="post">
             <div class="bg p-5 pt-4 rounded">
                 <h2>Registre-se</h2>
                 <label for="nameNewUser" class="form-label mt-3 fw-semibold">Nome</label>
-                <input type="text" class="form-control" id="nameNewUser" placeholder="Nome" required>
+                <input type="text" class="form-control" id="nameNewUser" th:field="*{name}" placeholder="Nome" required>
                 <label for="emailNewUser" class="form-label mt-3 fw-semibold">E-mail</label>
-                <input type="email" class="form-control" id="emailNewUser" placeholder="nome@exemplo.com" required>
+                <input type="email" class="form-control" id="emailNewUser" th:field="*{email}" placeholder="nome@exemplo.com" required>
+                <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Este email já está cadastrado.</p>
                 <label for="passwordNewUser" class="form-label mt-3 fw-semibold">Senha</label>
-                <input type="password" class="form-control" id="passwordNewUser" required>
+                <input type="password" class="form-control" id="passwordNewUser" th:field="*{password}" minlength="8" required>
                 <label for="confirmPasswordNewUser" class="form-label mt-3 fw-semibold">Confirme a senha</label>
                 <input type="password" class="form-control" id="confirmPasswordNewUser" required>
                 <div id="errorMessage" class="alert alert-danger mt-3 d-none"></div>
