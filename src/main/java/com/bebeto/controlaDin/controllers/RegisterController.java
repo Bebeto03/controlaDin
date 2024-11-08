@@ -44,9 +44,4 @@ public class RegisterController {
 
     }
 
-    @GetMapping("/login")
-    public String showLoginForm(){
-        return "login";
-    }
-
 }
