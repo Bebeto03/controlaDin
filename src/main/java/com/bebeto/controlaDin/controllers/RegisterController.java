@@ -13,15 +13,18 @@ import com.bebeto.controlaDin.repositories.UserRepository;
 import jakarta.validation.Valid;
 
 @Controller
-public class LoginController {
+public class RegisterController {
 
     @Autowired
     private UserRepository userRepository;
     
     @GetMapping("/register")
     public String showRegisterForm(Model model){
+
         model.addAttribute("user", new User());
+        
         return "register";
+
     }
 
     @PostMapping("/register")
@@ -29,8 +32,8 @@ public class LoginController {
 
         if(userRepository.existsByEmail(user.getEmail())){
             bindingResult.rejectValue("email", "email.duplicado", "Este email já está cadastrado.");
-            return "register";
         }
+
         if(bindingResult.hasErrors()){
             model.addAttribute("user", user);
             return "register";
@@ -45,6 +48,5 @@ public class LoginController {
     public String showLoginForm(){
         return "login";
     }
-
 
 }

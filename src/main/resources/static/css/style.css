@@ -32,3 +32,14 @@ label{
     background-color: #243642;
     border: none;
 }
+
+.text-align{
+    text-align: center;
+    padding-top: 30px;
+}
+a{
+    color: white;
+    text-decoration: underline;
+    text-align: center;
+    align-items: center;
+}

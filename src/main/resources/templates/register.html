@@ -15,14 +15,18 @@
                 <h2>Registre-se</h2>
                 <label for="nameNewUser" class="form-label mt-3 fw-semibold">Nome</label>
                 <input type="text" class="form-control" id="nameNewUser" th:field="*{name}" placeholder="Nome" required>
-                <label for="emailNewUser" class="form-label mt-3 fw-semibold">E-mail</label>
+
+                <label for="emailNewUser" class="form-label mt-1 fw-semibold">E-mail</label>
                 <input type="email" class="form-control" id="emailNewUser" th:field="*{email}" placeholder="nome@exemplo.com" required>
-                <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Este email já está cadastrado.</p>
-                <label for="passwordNewUser" class="form-label mt-3 fw-semibold">Senha</label>
+                <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="mb-0">Já existe um usuário com esse email.</p>
+                
+                <label for="passwordNewUser" class="form-label mt-1 fw-semibold">Senha</label>
                 <input type="password" class="form-control" id="passwordNewUser" th:field="*{password}" minlength="8" required>
-                <label for="confirmPasswordNewUser" class="form-label mt-3 fw-semibold">Confirme a senha</label>
+
+                <label for="confirmPasswordNewUser" class="form-label mt-1 fw-semibold">Confirme a senha</label>
                 <input type="password" class="form-control" id="confirmPasswordNewUser" required>
-                <div id="errorMessage" class="alert alert-danger mt-3 d-none"></div>
+                <div id="errorMessage" class="alert alert-danger d-none"></div>
+                 
                 <input type="submit" value="Registrar" class="form-control btn-color mt-4" id="submitNewUser">
             </div>
         </form>

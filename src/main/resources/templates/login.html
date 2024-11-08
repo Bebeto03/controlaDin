@@ -15,9 +15,15 @@
                 <h2>Login</h2>
                 <label for="emailUser" class="form-label mt-3 fw-semibold">E-mail</label>
                 <input type="email" class="form-control" id="emailUser" required>
-                <label for="passwordUser" class="form-label mt-3 fw-semibold">Senha</label>
+
+                <label for="passwordUser" class="form-label mt-1 fw-semibold">Senha</label>
                 <input type="password" class="form-control" id="passwordUser" required>
+
                 <input type="submit" value="Entrar" class="form-control btn-color mt-4" id="submitUser">
+                
+                <div class="text-align">
+                    <a th:href="@{/register}">Registre-se</a>
+                </div>
             </div>
         </form>
     </div>
