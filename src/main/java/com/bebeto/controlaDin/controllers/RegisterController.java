@@ -31,7 +31,7 @@ public class RegisterController {
     public String registerUser(@Valid User user, BindingResult bindingResult, Model model){
 
         if(userRepository.existsByEmail(user.getEmail())){
-            bindingResult.rejectValue("email", "email.duplicado", "Este email já está cadastrado.");
+            bindingResult.rejectValue("email", "email.duplicado","Este email já foi cadastrado.");
         }
 
         if(bindingResult.hasErrors()){
