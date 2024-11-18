@@ -6,13 +6,14 @@ import jakarta.validation.constraints.Size;
 
 public class UsuarioDto {
     
-    @NotBlank
+    @NotBlank(message = "Preencha o campo acima.")
     private String name;
 
-    @NotBlank
-    @Email
+    @NotBlank(message = "Preencha o campo acima.")
+    @Email(message = "Informe um e-mail válido.")
     private String email;
 
+    @NotBlank(message = "Preencha o campo  acima.")
     @Size(min = 8, message = "A senha deve possuir no mínimo 8 caracteres.")
     private String password;
 
