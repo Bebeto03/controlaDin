@@ -1,0 +1,26 @@
+body{
+    background-color: #243642;
+    color: white;
+}
+
+.custom-navbar{
+    background-color: #387478;
+}
+
+.custom-navbar .project-name{
+    font-size: 1.5em;
+    font-weight: bold;
+    color: white;
+}
+
+.custom-navbar .nav-link{
+    color: white;
+    font-size: 1.1em;
+    text-decoration: none;
+}
+
+.custom-navbar .nav-link.active{
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}

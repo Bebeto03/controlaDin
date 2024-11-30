@@ -28,6 +28,10 @@ public class SecurityConfig {
                         .loginPage("/login")
                         .defaultSuccessUrl("/controlaDin/incomes", true)
                     )
+                    .sessionManagement(session -> session
+                        .maximumSessions(1)
+                        .maxSessionsPreventsLogin(true)
+                    )
                     .logout(config -> config
                         .logoutSuccessUrl("/login")
                     )
