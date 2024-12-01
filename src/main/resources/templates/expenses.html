@@ -27,7 +27,7 @@
         </div>
     </nav>
     
-    <div class="container mt-3 position-relative">
+    <div class="container mt-2 position-relative">
         <a href="/controlaDin/expenses/new" class="btn btn-primary btn-add position-absolute">Adicionar Despesa</a>
     </div>
 
@@ -39,23 +39,15 @@
                 <th>Valor(R$)</th>
                 <th>Data Limite</th>
                 <th>Status</th>
-                <th>Ações</th>
             </tr>
         </thead>
         <tbody class="table-group-divider">
-            <tr>
-                <td>Aluguel</td>
-                <td>Valor mensal do apartamento</td>
-                <td>1200.50</td>
-                <td>Pago</td>
-                <td>teste</td>
-            </tr>
-            <tr>
-                <td>Aluguel</td>
-                <td>Valor mensal do apartamento</td>
-                <td>1200.50</td>
-                <td>Pago</td>
-                <td>teste</td>
+            <tr th:each="despesa : ${despesas}">
+                <td th:text="${despesa.name}"></td>
+                <td th:text="${despesa.description}"></td>
+                <td th:text="${#numbers.formatDecimal(despesa.amount,2,2)}"></td>
+                <td th:text="${#temporals.format(despesa.deadline, 'dd-MM-yyyy')}"></td>
+                <td th:text="${despesa.status}"></td>
             </tr>
         </tbody>
     </table>

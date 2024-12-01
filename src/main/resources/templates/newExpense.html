@@ -13,6 +13,8 @@
         <h1>ControlaDin</h1>
         <form method="post" th:object="${despesaDto}">
 
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+
             <div class="bg p-5 pt-4 rounded">
                 <h2>Nova Despesa</h2>
                 
@@ -30,13 +32,14 @@
 
                 <label for="statusNewExpense" class="mt-1 fw-semibold">Status</label>
                 <select id="statusNewExpense" class="form-select" th:field="${despesaDto.status}">
-                    <option value="A pagar">A pagar</option>
-                    <option value="Paga">Paga</option>
-                    <option value="Cancelada">Cancelada</option>
+                    <option value='A pagar'>A pagar</option>
+                    <option value='Paga'>Paga</option>
+                    <option value='Cancelada'>Cancelada</option>
                 </select>
+                <p class="mb-0" th:if="${#fields.hasErrors('status')}" th:errorClass="text-danger" th:errors="${despesaDto.status}"></p>
 
-                <label for="dayPaymentNewExpense" class="form-label mt-1 fw-semibold">Data limite para pagamento</label>
-                <input id="dayPaymentNewExpense" type="date" class="form-control" th:field="${despesaDto.dayPayment}">
+                <label for="deadlineNewExpense" class="form-label mt-1 fw-semibold">Data limite para pagamento</label>
+                <input id="deadlineNewExpense" type="date" class="form-control" th:field="${despesaDto.deadline}">
 
                 <input type="submit" value="Criar Nova Despesa" class="form-control btn-color mt-4" id="submitExpense">
             </div>

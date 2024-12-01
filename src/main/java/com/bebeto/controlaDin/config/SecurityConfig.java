@@ -27,6 +27,7 @@ public class SecurityConfig {
                     .formLogin(form -> form
                         .loginPage("/login")
                         .defaultSuccessUrl("/controlaDin/incomes", true)
+                        .permitAll()
                     )
                     .sessionManagement(session -> session
                         .maximumSessions(1)

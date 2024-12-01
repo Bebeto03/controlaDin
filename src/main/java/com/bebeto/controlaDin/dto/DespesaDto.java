@@ -20,13 +20,13 @@ public class DespesaDto {
     private String status;
 
     @NotNull(message = "Selecione uma data.")
-    private LocalDate dayPayment;
+    private LocalDate deadline;
 
     public String getName(){
         return name;
     }
 
-    public void setNome(String name){
+    public void setName(String name){
         this.name = name;
     }
 
@@ -54,12 +54,12 @@ public class DespesaDto {
         this.status = status;
     }
 
-    public LocalDate getDayPayment(){
-        return dayPayment;
+    public LocalDate getDeadline(){
+        return deadline;
     }
 
-    public void setDayPayment(LocalDate dayPayment){
-        this.dayPayment = dayPayment;
+    public void setDeadline(LocalDate deadline){
+        this.deadline = deadline;
     }
 
 }
