@@ -3,6 +3,7 @@ package com.bebeto.controlaDin.dto;
 import java.time.LocalDate;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 
 public class DespesaDto {
@@ -18,10 +19,10 @@ public class DespesaDto {
     @NotBlank(message = "Selecione um status.")
     private String status;
 
-    @NotBlank(message = "Selecione uma data.")
+    @NotNull(message = "Selecione uma data.")
     private LocalDate dayPayment;
 
-    public String getNome(){
+    public String getName(){
         return name;
     }
 
