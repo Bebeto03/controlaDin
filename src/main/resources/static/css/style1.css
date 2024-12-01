@@ -24,3 +24,10 @@ body{
     font-weight: bold;
     text-decoration: none;
 }
+
+.btn-add{
+    top: 10px;
+    right: 0;
+    background-color: #387478;
+    border-color: #387478;
+}
