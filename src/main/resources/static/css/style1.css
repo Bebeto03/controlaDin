@@ -31,3 +31,16 @@ body{
     background-color: #387478;
     border-color: #387478;
 }
+
+table{
+    top: 25px;
+    width: 75%;
+    margin: 0 auto;
+}
+
+thead{
+    background-color: #387478;
+    border-color: white;
+}
+
+
