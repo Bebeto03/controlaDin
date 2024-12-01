@@ -3,6 +3,7 @@ package com.bebeto.controlaDin.dto;
 import java.time.LocalDate;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 
 public class ReceitaDto {
@@ -18,7 +19,7 @@ public class ReceitaDto {
     @NotBlank(message = "Selecione um status.")
     private String status;
 
-    @NotBlank(message = "Selecione uma data.")
+    @NotNull(message = "Selecione uma data.")
     private LocalDate receipt;
 
     public String getName(){
