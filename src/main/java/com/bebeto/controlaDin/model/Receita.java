@@ -81,4 +81,12 @@ public class Receita {
     public void setReceipt(LocalDate receipt){
         this.receipt = receipt;
     }
+
+    public Usuario getUsuario(){
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario){
+        this.usuario = usuario;
+    }
 }

@@ -19,7 +19,6 @@ import com.bebeto.controlaDin.repository.UsuarioRepository;
 import jakarta.validation.Valid;
 
 @Controller
-
 public class CreateExpensesController {
 
     @Autowired
@@ -56,5 +55,5 @@ public class CreateExpensesController {
         despesaRepository.save(newDespesa);
         return "redirect:/controlaDin/expenses";
     }
-    
+
 }
