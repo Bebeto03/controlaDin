@@ -28,7 +28,7 @@
     </nav>
     
     <div class="container mt-2 position-relative">
-        <a href="/controlaDin/expenses/new" class="btn btn-primary btn-add position-absolute">Adicionar Despesa</a>
+        <a th:href="@{/controlaDin/expenses/new}" class="btn btn-primary btn-add position-absolute">Adicionar Despesa</a>
     </div>
 
     <table class="position-relative mt-5">
@@ -39,6 +39,7 @@
                 <th>Valor(R$)</th>
                 <th>Data Limite</th>
                 <th>Status</th>
+                <th>Ações</th>
             </tr>
         </thead>
         <tbody class="table-group-divider">
@@ -48,6 +49,11 @@
                 <td th:text="${#numbers.formatDecimal(despesa.amount,2,2)}"></td>
                 <td th:text="${#temporals.format(despesa.deadline, 'dd-MM-yyyy')}"></td>
                 <td th:text="${despesa.status}"></td>
+
+                <td>
+                    <a class="btn btn-primary btn-sm" th:href="@{/controlaDin/expenses/edit(id=${despesa.id})}">Editar</a>
+                    <a class="btn btn-danger btn-sm" th:href="@{/controlaDin/expenses/delete(id=${despesa.id})}" onclick="return confirm('Você tem certeza que quer excluir esta despesa?')">Excluir</a>
+                </td>
             </tr>
         </tbody>
     </table>

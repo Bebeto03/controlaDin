@@ -28,7 +28,7 @@
     </nav>
 
     <div class="container mt-3 position-relative">
-        <a href="/controlaDin/incomes/new" class="btn btn-primary btn-add position-absolute">Adicionar Receita</a>
+        <a th:href="@{/controlaDin/incomes/new}" class="btn btn-primary btn-add position-absolute">Adicionar Receita</a>
     </div>
 
     <table class="position-relative mt-5">
@@ -39,6 +39,7 @@
                 <th>Valor(R$)</th>
                 <th>Data de Recebimento</th>
                 <th>Status</th>
+                <th>Ações</th>
             </tr>
         </thead>
         <tbody class="table-group-divider">
@@ -48,6 +49,11 @@
                 <td th:text="${#numbers.formatDecimal(receita.amount,2,2)}"></td>
                 <td th:text="${#temporals.format(receita.receipt, 'dd-MM-yyyy')}"></td>
                 <td th:text="${receita.status}"></td>
+                
+                <td>
+                    <a class="btn btn-primary btn-sm" th:href="@{/controlaDin/incomes/edit(id=${receita.id})}">Editar</a>
+                    <a class="btn btn-danger btn-sm" th:href="@{/controlaDin/incomes/delete(id=${receita.id})}" onclick="return confirm('Você tem certeza que quer excluir esta receita?')">Excluir</a>
+                </td>
             </tr>
         </tbody>
     </table>
