@@ -1,7 +1,7 @@
 package com.bebeto.controlaDin.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -21,11 +21,13 @@ public class RegisterController {
 
     @Autowired
     private UsuarioRepository usuarioRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
     
     @GetMapping("/register")
     public String showRegisterPage(Model model){
-        UsuarioDto usuarioDto = new UsuarioDto();
-        model.addAttribute(usuarioDto);
+        model.addAttribute("usuarioDto", new UsuarioDto());
         return "register";
     }
 
@@ -45,16 +47,13 @@ public class RegisterController {
         if(result.hasErrors()){
             return "register";
         }
-        else{
-            var bCryptEncoder = new BCryptPasswordEncoder();
 
-            Usuario newUsuario = new Usuario();
-            newUsuario.setName(usuarioDto.getName());
-            newUsuario.setEmail(usuarioDto.getEmail());
-            newUsuario.setPassword(bCryptEncoder.encode(usuarioDto.getPassword()));
-            newUsuario.setRole("client");
-            usuarioRepository.save(newUsuario);
-        }
+        Usuario newUsuario = new Usuario();
+        newUsuario.setName(usuarioDto.getName());
+        newUsuario.setEmail(usuarioDto.getEmail());
+        newUsuario.setPassword(passwordEncoder.encode(usuarioDto.getPassword()));
+        newUsuario.setRole("client");
+        usuarioRepository.save(newUsuario);
 
         return "redirect:/login";
 
