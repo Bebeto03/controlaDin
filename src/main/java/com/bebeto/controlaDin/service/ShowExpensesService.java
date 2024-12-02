@@ -18,9 +18,20 @@ public class ShowExpensesService {
     @Autowired
     private DespesaRepository despesaRepository;
 
-    public List<Despesa> despesasUsuarioLogado(){
+    public List<Despesa> despesasUsuarioLogado(String sort){
         Usuario usuario = usuarioLogadoService.getUsuarioLogado();
-        return despesaRepository.findByUsuario(usuario);
+        switch (sort){
+            case "amount_desc":
+                return despesaRepository.findByUsuarioOrderByAmountDesc(usuario);
+            case "amount_asc":
+                return despesaRepository.findByUsuarioOrderByAmountAsc(usuario);
+            case "date_desc":
+                return despesaRepository.findByUsuarioOrderByDeadlineDesc(usuario);
+            case "date_asc":
+                return despesaRepository.findByUsuarioOrderByDeadlineAsc(usuario);
+            default:
+                return despesaRepository.findByUsuario(usuario);
+        }
     }
     
 }

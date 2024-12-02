@@ -18,9 +18,20 @@ public class ShowIncomesService {
     @Autowired
     private ReceitaRepository receitaRepository;
 
-    public List<Receita> receitasUsuarioLogado(){
+    public List<Receita> receitasUsuarioLogado(String sort){
         Usuario usuario = usuarioLogadoService.getUsuarioLogado();
-        return receitaRepository.findByUsuario(usuario);
+        switch(sort){
+            case "amount_desc":
+                return receitaRepository.findByUsuarioOrderByAmountDesc(usuario);
+            case "amount_asc":
+                return receitaRepository.findByUsuarioOrderByAmountAsc(usuario);
+            case "date_desc":
+                return receitaRepository.findByUsuarioOrderByReceiptDesc(usuario);
+            case "date_asc":
+                return receitaRepository.findByUsuarioOrderByReceiptAsc(usuario);
+            default:
+                return receitaRepository.findByUsuario(usuario);
+        }
     }
 
 }

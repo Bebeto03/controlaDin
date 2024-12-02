@@ -19,19 +19,30 @@
                     <li class="nav-item">
                         <a class="nav-link active" th:href="@{/controlaDin/expenses}">Despesas</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" th:href="@{/controlaDin/profile}">Perfil</a>
-                    </li>
                 </ul>
             </div>
+            <form action="/logout" method="post" th:action="@{/logout}">
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                <button type="submit" class="btn btn-danger">Sair</button>
+            </form>
         </div>
     </nav>
     
-    <div class="container mt-2 position-relative">
+    <div class="container mt-3 mb-1 position-relative">
+        <form action="/controlaDin/expenses" method="get">
+            <label for="sort">Filtro: </label>
+            <select id="sort" name="sort" onchange="this.form.submit()">
+                <option value="amount_desc" th:selected="${sort == 'amount_desc'}">Maiores Despesas</option>
+                <option value="amount_asc" th:selected="${sort ==  'amount_asc'}">Menores Despesas</option>
+                <option value="date_desc" th:selected="${sort == 'date_desc'}">Data Limite Mais Distante</option>
+                <option value="date_asc" th:selected="${sort == 'date_asc'}">Data Limite Mais Próxima</option>
+                <option value="default" th:selected="${sort == 'default'}">Padrão</option>
+            </select>
+        </form>
         <a th:href="@{/controlaDin/expenses/new}" class="btn btn-primary btn-add position-absolute">Adicionar Despesa</a>
     </div>
 
-    <table class="position-relative mt-5">
+    <table class="position-relative mt-2">
         <thead>
             <tr>
                 <th>Nome</th>

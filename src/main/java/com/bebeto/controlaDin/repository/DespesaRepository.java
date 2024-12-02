@@ -10,6 +10,10 @@ import com.bebeto.controlaDin.model.Usuario;
 public interface DespesaRepository extends JpaRepository<Despesa, Long> {
 
     public List<Despesa> findByUsuario(Usuario usuario);
+    public List<Despesa> findByUsuarioOrderByAmountDesc(Usuario usuario);
+    public List<Despesa> findByUsuarioOrderByAmountAsc(Usuario usuario);
+    public List<Despesa> findByUsuarioOrderByDeadlineDesc(Usuario usuario);
+    public List<Despesa> findByUsuarioOrderByDeadlineAsc(Usuario usuario);
     public Despesa findById(long id);
     
 }
