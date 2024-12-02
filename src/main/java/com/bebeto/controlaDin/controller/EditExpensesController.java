@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bebeto.controlaDin.dto.DespesaDto;
 import com.bebeto.controlaDin.model.Despesa;
-import com.bebeto.controlaDin.repository.DespesaRepository;
+import com.bebeto.controlaDin.service.EditExpensesService;
 
 import jakarta.validation.Valid;
 
@@ -19,20 +19,15 @@ import jakarta.validation.Valid;
 public class EditExpensesController {
     
     @Autowired
-    private DespesaRepository despesaRepository;
+    private EditExpensesService editExpensesService;
 
     @GetMapping("/controlaDin/expenses/edit")
     public String showExpenseEditPage(Model model, @RequestParam long id){
-        Despesa despesa = despesaRepository.findById(id);
+        Despesa despesa = editExpensesService.carregarDespesa(id);
         if(despesa==null){
             return "redirect:/controlaDin/expenses";
         }
-        DespesaDto despesaDto = new DespesaDto();
-        despesaDto.setName(despesa.getName());
-        despesaDto.setDescription(despesa.getDescription());
-        despesaDto.setAmount(despesa.getAmount());
-        despesaDto.setDeadline(despesa.getDeadline());
-        despesaDto.setStatus(despesa.getStatus());
+        DespesaDto despesaDto = editExpensesService.mostrarDespesa(despesa);
         model.addAttribute("despesa", despesa);
         model.addAttribute("despesaDto", despesaDto);
         return "editExpense";
@@ -40,7 +35,7 @@ public class EditExpensesController {
 
     @PostMapping("/controlaDin/expenses/edit")
     public String editExpense(Model model, @RequestParam long id, @Valid @ModelAttribute DespesaDto despesaDto, BindingResult result){
-        Despesa despesa = despesaRepository.findById(id);
+        Despesa despesa = editExpensesService.carregarDespesa(id);
         if(despesa==null){
             return "redirect:/controlaDin/expenses";
         }
@@ -48,12 +43,7 @@ public class EditExpensesController {
         if(result.hasErrors()){
             return "editExpense";
         }
-        despesa.setName(despesaDto.getName());
-        despesa.setDescription(despesaDto.getDescription());
-        despesa.setAmount(despesaDto.getAmount());
-        despesa.setDeadline(despesaDto.getDeadline());
-        despesa.setStatus(despesaDto.getStatus());
-        despesaRepository.save(despesa);
+        editExpensesService.atualizarDespesa(despesa, despesaDto);
         return "redirect:/controlaDin/expenses";
     }
 }
