@@ -60,7 +60,7 @@ public class DespesasController {
     }
 
     @PostMapping("/edit")
-    public String editarDespesa(Model model, @RequestParam long id, DespesaDto despesaDto, BindingResult result){
+    public String editarDespesa(Model model, @RequestParam long id, @Valid @ModelAttribute DespesaDto despesaDto, BindingResult result){
         Despesa despesa = despesasService.carregarDespesa(id);
         if(despesa==null){
             return "redirect:/controlaDin/expenses";
