@@ -3,6 +3,7 @@ package com.bebeto.controlaDin.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 
 import com.bebeto.controlaDin.dto.ReceitaDto;
@@ -10,6 +11,7 @@ import com.bebeto.controlaDin.model.Receita;
 import com.bebeto.controlaDin.model.Usuario;
 import com.bebeto.controlaDin.repository.ReceitaRepository;
 
+@Service
 public class ReceitasService {
     
     @Autowired

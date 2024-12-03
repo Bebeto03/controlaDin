@@ -29,10 +29,6 @@ public class SecurityConfig {
                         .defaultSuccessUrl("/controlaDin/incomes", true)
                         .permitAll()
                     )
-                    .sessionManagement(session -> session
-                        .maximumSessions(1)
-                        .maxSessionsPreventsLogin(true)
-                    )
                     .logout(config -> config
                         .logoutSuccessUrl("/login")
                     )
