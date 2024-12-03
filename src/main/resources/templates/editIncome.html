@@ -34,6 +34,7 @@
                 <select id="statusEditedIncome" class="form-select" th:field="${receitaDto.status}">
                     <option value='Utilizada'>Utilizada</option>
                     <option value='Não utilizada'>Não utilizada</option>
+                    <option value="Cancelada">Cancelada</option>
                 </select>
                 <p class="mb-0" th:if="${#fields.hasErrors('status')}" th:errorClass="text-danger" th:errors="${receitaDto.status}"></p>
 
