@@ -32,8 +32,8 @@
         <form action="/controlaDin/incomes" method="get">
             <label for="sort">Filtro: </label>
             <select id="sort" name="sort" onchange="this.form.submit()">
-                <option value="amount_desc" th:selected="${sort == 'amount_desc'}">Maiores Despesas</option>
-                <option value="amount_asc" th:selected="${sort ==  'amount_asc'}">Menores Despesas</option>
+                <option value="amount_desc" th:selected="${sort == 'amount_desc'}">Maiores Receitas</option>
+                <option value="amount_asc" th:selected="${sort ==  'amount_asc'}">Menores Receitas</option>
                 <option value="date_desc" th:selected="${sort == 'date_desc'}">Recebidos Mais Recentes</option>
                 <option value="date_asc" th:selected="${sort == 'date_asc'}">Recebidos Mais Antigos</option>
                 <option value="default" th:selected="${sort == 'default'}">Padrão</option>

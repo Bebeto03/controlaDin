@@ -42,6 +42,10 @@
                 <input id="deadlineNewExpense" type="date" class="form-control" th:field="${despesaDto.deadline}">
 
                 <input type="submit" value="Criar Nova Despesa" class="form-control btn-color mt-4" id="submitExpense">
+
+                <div class="text-align">
+                    <a th:href="@{/controlaDin/expenses}">Cancelar</a>
+                </div>
             </div>
         </form>
     </div>

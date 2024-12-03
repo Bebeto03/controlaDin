@@ -41,6 +41,10 @@
                 <input id="receiptNewIncome" type="date" class="form-control" th:field="${receitaDto.receipt}">
 
                 <input type="submit" value="Criar Nova Receita" class="form-control btn-color mt-4" id="submitNewIncome">
+
+                <div class="text-align">
+                    <a th:href="@{/controlaDin/incomes}">Cancelar</a>
+                </div>
             </div>
         </form>
     </div>
